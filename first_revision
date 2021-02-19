@@ -1,0 +1,65 @@
+#include<stdio.h> 
+  
+//functions  
+void AddAccount(char name[], char surname[]);
+
+int main() 
+{    
+    //Declare and initialize variables
+    char name[] = "";
+    char surname[] = "";
+    int option = 0;
+    
+    //Welcome screen
+    printf("************************************ \n");
+    printf("Welcome to my sample banking system \n");
+    printf("************************************ \n");
+    
+    //Prompt user to select input
+    printf("Please select an option: \n");
+    
+    //Options
+    printf("1. Create new account. \n");
+    printf("2. Delete account. \n");
+    printf("3. View all accounts. \n");
+    printf("************************************ \n");
+    scanf("%d", &option);
+    
+   
+    //Option selection and eroor handling
+    while (option != 1 && option != 2 && option != 3)
+    {
+        printf("Please select a valid option! \n");
+        scanf("%d", &option);
+    }     
+
+
+    if (option == 1)
+    {
+        printf("Create new account:  \n");
+        printf("************************************ \n");
+        AddAccount(name, surname);
+    }
+    else if (option == 2)
+    {
+        printf("Delete account:  \n");
+    }
+    else
+    {
+        printf("View all accounts:  \n");
+    }   
+
+    
+    return 0; 
+} 
+
+//Declare functions
+
+void AddAccount(char name[], char surname[])         // function definition   
+{
+    printf("Please enter first name: \n" );
+    scanf("%d", &name);
+    
+    printf("Please enter surname: \n" );
+    scanf("%d", &surname);
+}
