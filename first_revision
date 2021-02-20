@@ -2,13 +2,18 @@
   
 //functions  
 void AddAccount(char name[], char surname[]);
+void Options(int option);
+
+//global variabes : cross-function use
+char name[];
+char surname[];
+int SelectedOption = 0;
 
 int main() 
 {    
-    //Declare and initialize variables
-    char name[] = "";
-    char surname[] = "";
-    int option = 0;
+    //Declare and initialize local variables
+    //
+    //
     
     //Welcome screen
     printf("************************************ \n");
@@ -19,21 +24,30 @@ int main()
     printf("Please select an option: \n");
     
     //Options
-    printf("1. Create new account. \n");
-    printf("2. Delete account. \n");
-    printf("3. View all accounts. \n");
+    printf("1. Create new account. (1) \n");
+    printf("2. Delete account. (2) \n");
+    printf("3. View all accounts. (3) \n");
     printf("************************************ \n");
-    scanf("%d", &option);
+    scanf("%d", &SelectedOption);
     
-   
+    Options(SelectedOption);
+    
+    return 0; 
+} 
+
+//Declare functions
+
+void Options(int option)
+{
+
     //Option selection and eroor handling
-    while (option != 1 && option != 2 && option != 3)
+    while (SelectedOption != 1 && SelectedOption != 2 && SelectedOption != 3)
     {
         printf("Please select a valid option! \n");
-        scanf("%d", &option);
-    }     
-
-
+        scanf("%d", &SelectedOption);
+    }
+    
+    //calling appropriate functions
     if (option == 1)
     {
         printf("Create new account:  \n");
@@ -48,18 +62,13 @@ int main()
     {
         printf("View all accounts:  \n");
     }   
+}
 
-    
-    return 0; 
-} 
-
-//Declare functions
-
-void AddAccount(char name[], char surname[])         // function definition   
+void AddAccount(char temp_name[], char temp_surname[])         // function definition   
 {
     printf("Please enter first name: \n" );
-    scanf("%d", &name);
+    scanf("%d", &temp_name);
     
     printf("Please enter surname: \n" );
-    scanf("%d", &surname);
+    scanf("%d", &temp_surname);
 }
