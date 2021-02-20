@@ -1,12 +1,13 @@
 #include<stdio.h> 
   
 //functions  
-void AddAccount(char name[], char surname[]);
+void AddAccount(char temp_name[], char temp_surname[], char temp_age[]);
 void Options(int option);
 
 //global variabes : cross-function use
 char name[];
 char surname[];
+char age[];
 int SelectedOption = 0;
 
 int main() 
@@ -52,7 +53,7 @@ void Options(int option)
     {
         printf("Create new account:  \n");
         printf("************************************ \n");
-        AddAccount(name, surname);
+        AddAccount(name, surname, age);
     }
     else if (option == 2)
     {
@@ -64,11 +65,15 @@ void Options(int option)
     }   
 }
 
-void AddAccount(char temp_name[], char temp_surname[])         // function definition   
+void AddAccount(char temp_name[], char temp_surname[], char temp_age[])         
+// function definition   
 {
     printf("Please enter first name: \n" );
-    scanf("%d", &temp_name);
+    scanf("%s", &temp_name);
     
     printf("Please enter surname: \n" );
-    scanf("%d", &temp_surname);
+    scanf("%s", &temp_surname);
+    
+    printf("Please enter age: \n" );
+    scanf("%d", &temp_age);
 }
