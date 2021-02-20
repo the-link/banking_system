@@ -16,6 +16,10 @@ int main()
     //
     //
     
+   MainMenue: // goto used to return to top
+
+        
+        
     //Welcome screen
     printf("************************************ \n");
     printf("Welcome to my sample banking system \n");
@@ -32,6 +36,7 @@ int main()
     scanf("%d", &SelectedOption);
     
     Options(SelectedOption);
+        goto MainMenue;
     
     return 0; 
 } 
@@ -68,6 +73,7 @@ void Options(int option)
 void AddAccount(char temp_name[], char temp_surname[], char temp_age[])         
 // function definition   
 {
+
     printf("Please enter first name: \n" );
     scanf("%s", &temp_name);
     
@@ -76,4 +82,8 @@ void AddAccount(char temp_name[], char temp_surname[], char temp_age[])
     
     printf("Please enter age: \n" );
     scanf("%d", &temp_age);
+
+    printf("Please be patient as we return to the main menu. \n" );
+    sleep(5);
+
 }
