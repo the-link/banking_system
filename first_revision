@@ -1,89 +1,105 @@
-#include<stdio.h> 
+// Online C compiler to run C program online
+#include <stdio.h> 
+#include <ctype.h>
+#include <stdlib.h>
   
 //functions  
-void AddAccount(char temp_name[], char temp_surname[], char temp_age[]);
-void Options(int option);
+void AddAccount(char name[], char surname[], char age[]);
+void DeleteAccount();
 
 //global variabes : cross-function use
-char name[];
-char surname[];
-char age[];
-int SelectedOption = 0;
+
 
 int main() 
 {    
     //Declare and initialize local variables
-    //
-    //
+    char c[1];
+    char name[20];
+    char surname[20];
+    char age[3];
+    int SelectedOption;
     
+        
+    // ********************************************************************************************
    MainMenue: // goto used to return to top
-
-        
-        
+   
     //Welcome screen
     printf("************************************ \n");
     printf("Welcome to my sample banking system \n");
-    printf("************************************ \n");
-    
-    //Prompt user to select input
-    printf("Please select an option: \n");
+    printf("************************************ \n\n");
     
     //Options
     printf("1. Create new account. (1) \n");
     printf("2. Delete account. (2) \n");
     printf("3. View all accounts. (3) \n");
-    printf("************************************ \n");
-    scanf("%d", &SelectedOption);
+    printf("************************************ \n\n");
+
+    //Prompt user to select input
+    do 
+    {
+        printf("Please select an option: \n");
+        scanf("%c", &c[0]);
+    }
+    while (isdigit(c[0])== 0);
     
-    Options(SelectedOption);
-        goto MainMenue;
+    // **********************************************************************************************
     
+    //cast c (char) to int for use below:
+    
+    SelectedOption = atoi(c);
+
+    
+    //Option selection and eroor handling
+        switch(SelectedOption)
+        {
+            case 1:
+                AddAccount(name, surname, age);
+                goto MainMenue;
+                break;
+            case 2:
+                DeleteAccount();
+                break;
+            case 3:
+                printf("View all. ");
+                break;
+            default:
+                printf("Please enter valid selection! \n");
+                break;
+                
+        }
+        
     return 0; 
 } 
 
 //Declare functions
 
-void Options(int option)
-{
-
-    //Option selection and eroor handling
-    while (SelectedOption != 1 && SelectedOption != 2 && SelectedOption != 3)
-    {
-        printf("Please select a valid option! \n");
-        scanf("%d", &SelectedOption);
-    }
-    
-    //calling appropriate functions
-    if (option == 1)
-    {
-        printf("Create new account:  \n");
-        printf("************************************ \n");
-        AddAccount(name, surname, age);
-    }
-    else if (option == 2)
-    {
-        printf("Delete account:  \n");
-    }
-    else
-    {
-        printf("View all accounts:  \n");
-    }   
-}
-
-void AddAccount(char temp_name[], char temp_surname[], char temp_age[])         
+void AddAccount(char name[], char surname[], char age[])         
 // function definition   
 {
 
     printf("Please enter first name: \n" );
-    scanf("%s", &temp_name);
+    scanf("%s", &name);
     
     printf("Please enter surname: \n" );
-    scanf("%s", &temp_surname);
+    scanf("%s", &surname);
     
     printf("Please enter age: \n" );
-    scanf("%d", &temp_age);
+    scanf("%d", &age);
 
     printf("Please be patient as we return to the main menu. \n" );
     sleep(5);
 
 }
+
+void DeleteAccount()         
+// function definition   
+{
+
+    printf("Function still to be created: \n" );
+
+
+    printf("Please be patient as we return to the main menu. \n" );
+    sleep(5);
+
+}
+
