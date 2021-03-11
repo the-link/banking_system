@@ -38,7 +38,7 @@ int main()
     do 
     {
         printf("Please select an option: \n");
-        scanf("%c", &c[0]);
+        scanf("%s", &c[0]);
     }
     while (isdigit(c[0])== 0);
     
